@@ -1,17 +1,3 @@
-<?php
- ob_start();
- session_start();
- require_once 'dbconnect.php';
- 
- // if session is not set this will redirect to login page
- if( !isset($_SESSION['user']) ) {
-  header("Location: home.php");
-  exit;
- }
- // select loggedin users detail
- $res=mysql_query("SELECT * FROM users WHERE userId=".$_SESSION['user']);
- $userRow=mysql_fetch_array($res);
-?>
 <!DOCTYPE html>
 <html>
 <title>Home</title>
@@ -19,6 +5,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <style>
 h1,h2,h3,h4,h5,h6 {
@@ -80,7 +67,7 @@ li a {
     font-family: Freestyle Script;
     font-size:28px;
     text-align: center;
-    padding: 14px 115.5px;
+    padding: 14px 129.65px;
     text-decoration: none;
 }
 
@@ -95,41 +82,41 @@ li a:hover {
 <div class="bgimg-1 w3-opacity w3-display-container">
   <div class="w3-display-middle" style="white-space:nowrap;">
   </div><img src="kitchenlogo4.png" class="w3-display-topmiddle">
-    <div class="w3-display-middle"><marquee><h3>WELCOME ~ <?php echo $userRow['userName']; ?></h3></marquee></div>
+    <div class="w3-display-middle"><marquee><h3>WELCOME!</h3></marquee></div>
     <div class="w3-display-middle1">
-    <button class="ghost-button-full-color" onclick="window.location.href='food.php'">Food Blog</button>&nbsp&nbsp&nbsp&nbsp&nbsp
-    <button class="ghost-button-full-color" onclick="window.location.href='drinks.php'">Drinks Blog</button>&nbsp&nbsp&nbsp&nbsp&nbsp
-    <button class="ghost-button-full-color" onclick="window.location.href='desert.php'">Desert Blog</button>
+    <button class="ghost-button-full-color" onclick="window.location.href='food.html'">Food Menu</button>&nbsp&nbsp&nbsp&nbsp&nbsp
+    <button class="ghost-button-full-color" onclick="window.location.href='drinks.html'">Drinks Menu</button>&nbsp&nbsp&nbsp&nbsp&nbsp
+    <button class="ghost-button-full-color" onclick="window.location.href='desert.html'">Desert Menu</button>
     </div>
 </div>
   <!--Navigation Bar -->
 <div class="w3-row">
 <div class="col">
 <ul>
-  <li><a href="food.php">Eat</a></li>
-  <li><a href="drinks.php">Drink</a></li>
-  <li><a href="desert.php">Desert</a></li>
-  <li><a href="about.php">About</a></li>
-  <li><a href="contact.php">Contact us</a></li>
-  <li><a href="logout.php?logout">Logout</a></li>
+  <li><a href="food.html">Eat</a></li>
+  <li><a href="drinks.html">Drink</a></li>
+  <li><a href="desert.html">Desert</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="contact.html">Contact us</a></li>
+  <li><a href="login.html">Login/Register</a></li>
 </ul>
 </div>
 </div>
 <br><br>
 <div class="w3-row">
 <div class="w3-third">
-  <p style="font-family: Mistral;font-size:48px;color: black;"> Food Blog</p>
-  <img src="caprese-13.jpg" class="w3-circle pic" onclick="window.location.href='food.php'" alt="Photo of Me"><br>
+  <p style="font-family: Mistral;font-size:48px;color: black;"> Eat</p>
+  <img src="caprese-13.jpg" class="w3-circle pic" onclick="window.location.href='food.html'" alt="Photo of Me"><br>
   <p style="font-size: 18px;font-family: Myanmar" class="w3-padding-32">For those with pure food indulgence in mind,come<br>satisfy your desires with our ever changing<br>internationally and seasonally inspired <br>small plates.We are a scratch kitchen and love food,<br>lots of different food, just like you.</p>
 </div>
 <div class="w3-third">
-  <p style="font-family: Mistral;font-size:48px;color: black;"> Drink's Blog</p>
-  <img src="coctails12.jpg" class="w3-circle pic" onclick="window.location.href='drinks.php'" alt="Photo of Me">
+  <p style="font-family: Mistral;font-size:48px;color: black;"> Drink</p>
+  <img src="coctails12.jpg" class="w3-circle pic" onclick="window.location.href='drinks.html'" alt="Photo of Me">
   <p style="font-size: 18px;font-family: Myanmar" class="w3-padding-32">Our Sommelier has handpicked some of the most<br>delightful wines from across the world. If you are<br>looking for something a little more stiff, choose from<br>our selection of 50+ whiskeys. When it comes to Beer<br>we have you covered as well, with 14 craft beers to<br>choose from, we have something for everyone.</p>
 </div>
 <div class="w3-third">
-  <p style="font-family: Mistral;font-size:48px;color: black;"> Desert Blog</p>
-  <img src="icecream31.jpg" class="w3-circle pic" onclick="window.location.href='desert.php'" alt="Photo of Me">
+  <p style="font-family: Mistral;font-size:48px;color: black;"> Desert</p>
+  <img src="icecream31.jpg" class="w3-circle pic" onclick="window.location.href='desert.html'" alt="Photo of Me">
   <p style="font-size: 18px;font-family: Myanmar" class="w3-padding-32">Albatross Kitchen Bar is here to help you plan your<br>special desert. From our private dining room to our<br>beautiful patio we can accommodate up to 250<br>guests. Our service and menu all come together to<br>create your perfect dining place.</p>
 </div>
 </div>
@@ -171,31 +158,30 @@ li a:hover {
       </div>
     <div class="w3-col m9 w3-section w3-container">
       <!-- Add Google Maps -->
-      <div id="googleMap" class="w3-round-large w3-card-12" style="width:100%;"></div>
+      <div id="googleMap" class="w3-round-large w3-card-12" style="width: 100%;"></div>
     </div>
     </div>
   </div>
-<!-- Bottom Nav Bar -->
-<div class="w3-row">
-<div class="col">
-<ul>
-  <li><a href="food.php">Eat</a></li>
-  <li><a href="drinks.php">Drink</a></li>
-  <li><a href="desert.php">Desert</a></li>
-  <li><a href="about.php">About</a></li>
-  <li><a href="contact.php">Contact us</a></li>
-  <li><a href="logout.php?logout">Logout</a></li>
-</ul>
 </div>
-</div><!-- Footer -->
+<!-- Bottom Nav Bar -->
+<ul>
+  <li><a class="active" href="food.html">Eat</a></li>
+  <li><a href="drinks.html">Drink</a></li>
+  <li><a href="desert.html">Desert</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="contact.html">Contact us</a></li>
+  <li><a href="login.html">Login/Register</a></li>
+</ul>
+<!-- Footer -->
 <footer class="w3-center w3-dark-grey w3-padding-48 w3-hover-black">
   <p>Powered by <a href="http://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">Krushang Patel</a></p>
 </footer>
+ 
 <!-- Add Google Maps -->
 <script src="https://maps.googleapis.com/maps/api/js"></script>
 <script>
-<!-- Google Map Location -->
 var myCenter = new google.maps.LatLng(15.385960, 73.906134);
+
 function initialize() {
 var mapProp = {
   center: myCenter,
@@ -204,14 +190,35 @@ var mapProp = {
   draggable: false,
   mapTypeId: google.maps.MapTypeId.ROADMAP
   };
+
 var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
 var marker = new google.maps.Marker({
   position: myCenter,
 });
+
 marker.setMap(map);
 }
+
 google.maps.event.addDomListener(window, 'load', initialize);
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+}
+
+// Change style of navbar on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-navbar" + " w3-card-2" + " w3-animate-top" + " w3-white";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card-2 w3-animate-top w3-white", "");
+    }
+}
 </script>
+
 </body>
 </html>
-<?php ob_end_flush(); ?>
